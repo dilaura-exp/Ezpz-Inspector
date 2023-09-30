@@ -1,4 +1,7 @@
 # Ezpz-Inspector
+
+![EzpzIcon](https://github.com/dilaura-exp/Ezpz-Inspector/assets/21215083/b1aef590-77f1-4ae6-8c87-f944748d989d)
+
 Custom Inspector helper for Godot C# script.
 
 Easily create a button in Inspector using `[ExportButton]` attribute.

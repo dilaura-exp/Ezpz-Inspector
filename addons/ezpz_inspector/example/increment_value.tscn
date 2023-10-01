@@ -4,3 +4,15 @@
 
 [node name="IncrementValue" type="Node"]
 script = ExtResource("1_sip2v")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 0
+
+[node name="Button" type="Button" parent="MarginContainer"]
+modulate = Color(0.827451, 0, 0.231373, 1)
+custom_minimum_size = Vector2(34.86, 30.535)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4

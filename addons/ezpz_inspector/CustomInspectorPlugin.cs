@@ -70,19 +70,67 @@ namespace Calcatz.EzpzInspector {
                 if (category != kvp.Key.Name) continue;
 
                 foreach (var method in kvp.Value) {
-                    var button = new Button();
-                    string methodName = method.Name;
-                    button.Text = methodName;
-                    button.Pressed += () => {
-                        if (@object.HasMethod(methodName)) {
-                            @object.Call(methodName);
-                        }
-                    };
-                    AddCustomControl(button);
+                    HandleMethod(@object, method);
                 }
             }
         }
 
+        private void HandleMethod(GodotObject @object, MethodInfo method) {
+            var button = new Button();
+            string methodName = method.Name;
+
+            var buttonAttribute = method.GetCustomAttribute<ExportButtonAttribute>();
+            if (buttonAttribute._text == null) {
+                button.Text = methodName;
+            }
+            else {
+                button.Text = buttonAttribute._text;
+            }
+
+
+            MarginContainer marginContainer = null;
+            var marginAttribute = method.GetCustomAttribute<ControlMarginAttribute>();
+            if (marginAttribute != null) {
+                marginContainer = new MarginContainer();
+                marginContainer.AddThemeConstantOverride("margin_left", marginAttribute._marginLeft);
+                marginContainer.AddThemeConstantOverride("margin_top", marginAttribute._marginTop);
+                marginContainer.AddThemeConstantOverride("margin_right", marginAttribute._marginRight);
+                marginContainer.AddThemeConstantOverride("margin_bottom", marginAttribute._marginBottom);
+                marginContainer.AddChild(button);
+            }
+
+            var sizeAttribute = method.GetCustomAttribute<ControlSizeAttribute>();
+            if (sizeAttribute != null) {
+                if (marginContainer == null) {
+                    button.Size = new Vector2(sizeAttribute._width, sizeAttribute._height);
+                }
+                else {
+                    button.SizeFlagsHorizontal = Control.SizeFlags.ShrinkCenter;
+                    if (sizeAttribute._height >= 0) {
+                        button.SizeFlagsVertical = Control.SizeFlags.ShrinkCenter;
+                    }
+                    button.CustomMinimumSize = new Vector2(sizeAttribute._width, sizeAttribute._height);
+                }
+            }
+
+            var modulateColorAttribute = method.GetCustomAttribute<ControlModulateColorAttribute>();
+            if (modulateColorAttribute != null) {
+                button.Modulate = modulateColorAttribute.GetColor();
+            }
+
+            button.Pressed += () => {
+                if (@object.HasMethod(methodName)) {
+                    @object.Call(methodName);
+                }
+            };
+
+            if (marginContainer == null) {
+                AddCustomControl(button);
+            }
+            else {
+                AddCustomControl(marginContainer);
+            }
+        }
     }
 
 }

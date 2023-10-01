@@ -29,9 +29,19 @@ Advanced Styled Button:
 
 # How to Install
 
-Download the project and copy the addon folder into your Godot project.
-Go to Project -> Project Settings.. > Plugins, and enable Ezpz Inspector.
-If an error occured, make sure to compile the C# project first, and then try enabling again.
+## From Godot AssetLib:
+- Go to AssetLib tab.
+- Search "Ezpz Inspector"
+- Click "Ezpz Inspector" -> Download
+- Make sure to include everything inside "addons" folder, and click Install.
+- Go to Project -> Project Settings.. > Plugins, and enable Ezpz Inspector.
+
+## From Github:
+- Download the project or the released version.
+- Copy the addon folder into your Godot project.
+- Go to Project -> Project Settings.. > Plugins, and enable Ezpz Inspector.
+
+Note: If an error occured when you click Enable, make sure to recompile the C# project first, and then try enabling again.
 
 # How to Use
 

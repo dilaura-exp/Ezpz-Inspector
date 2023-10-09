@@ -6,7 +6,7 @@ namespace Calcatz.EzpzInspector {
     /// <summary>
     /// Changes the color modulation to inspector control.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Method)]
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Field | AttributeTargets.Property)]
     public class ControlModulateColorAttribute : Attribute {
 
         public float _r;

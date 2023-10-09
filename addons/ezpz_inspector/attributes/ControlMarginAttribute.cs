@@ -6,7 +6,7 @@ namespace Calcatz.EzpzInspector {
     /// <summary>
     /// Adds margin to an inspector control.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Method)]
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Field | AttributeTargets.Property)]
     public class ControlMarginAttribute : Attribute {
 
         public int _marginLeft;

@@ -4,3 +4,4 @@
 
 [node name="IncrementValue" type="Node"]
 script = ExtResource("1_sip2v")
+_currentValue = 3

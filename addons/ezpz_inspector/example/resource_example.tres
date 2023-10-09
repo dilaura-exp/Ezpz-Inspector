@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b40spioarpd3c"]
+
+[ext_resource type="Script" path="res://addons/ezpz_inspector/example/ResourceExample.cs" id="1_x0uyv"]
+
+[resource]
+script = ExtResource("1_x0uyv")
+_myValue = 0

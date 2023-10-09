@@ -8,6 +8,8 @@ namespace Calcatz.Example {
     public partial class IncrementValue : Node {
 
         [Export]
+        [UpperDescription("This is our current value.")]
+        [ControlModulateColor(0.1f, 0.9f, 0.9f, 1f)]
         private int _currentValue = 0;
 
         [ExportButton]
@@ -21,6 +23,12 @@ namespace Calcatz.Example {
         [ControlModulateColor(0.9f, 0.1f, 0.1f, 1f)]
         private void StyledButton() {
             _currentValue++;
+        }
+
+        [ExportButton]
+        [ControlMargin(10, 10, 10, 10)]
+        private static void StaticMethod() {
+            GD.Print("Static Method is called.");
         }
 
         // [Tool] attribute is required, but it also makes our code executed in editor.

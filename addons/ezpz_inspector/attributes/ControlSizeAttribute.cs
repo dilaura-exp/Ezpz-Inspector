@@ -6,7 +6,7 @@ namespace Calcatz.EzpzInspector {
     /// <summary>
     /// Overrides the size of inspector control.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Method)]
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Field | AttributeTargets.Property)]
     public class ControlSizeAttribute : Attribute {
 
         public float _width;
